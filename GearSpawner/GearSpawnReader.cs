@@ -1,4 +1,4 @@
-﻿using MelonLoader;
+using MelonLoader;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using UnityEngine;

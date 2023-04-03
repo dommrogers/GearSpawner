@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using Il2Cpp;
 using System.Diagnostics;
 using UnityEngine;
@@ -21,6 +21,18 @@ internal static class GearSpawnManager
 		}
 
 		sceneGearSpawnInfos.Add(gearSpawnInfo.NormalizePrefabName());
+	}
+
+	private static string GetNormalizedGearName(string gearName)
+	{
+		if (!gearName.StartsWith("GEAR_"))
+		{
+			return "GEAR_" + gearName;
+		}
+		else
+		{
+			return gearName;
+		}
 	}
 
 	private static string GetNormalizedSceneName(string sceneName) => sceneName.ToLowerInvariant();

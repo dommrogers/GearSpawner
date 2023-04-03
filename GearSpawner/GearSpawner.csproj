@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<!--This is the .NET version the mod will be compiled with. Don't change it.-->
@@ -24,15 +24,15 @@
 	</PropertyGroup>
 	
 	<PropertyGroup>
-		<Authors>ds5678</Authors>
-		<Version>2.2.0</Version>
-		<AssemblyVersion>$(Version)</AssemblyVersion>
-		<PackageId>ds5678.Modding.TLD.GearSpawner</PackageId>
+		<Authors>STBlade</Authors>
+		<Version>2.0.1</Version>
+		<AssemblyVersion>2.0.1</AssemblyVersion>
+		<PackageId>STBlade.Modding.TLD.GearSpawner</PackageId>
 		<PackageTags>MelonLoader Modding TLD Gear Spawning Utility Mod</PackageTags>
-		<RepositoryUrl>https://github.com/ds5678/GearSpawner</RepositoryUrl>
+		<RepositoryUrl>https://github.com/dommrogers/GearSpawner</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
-		<PackageProjectUrl>https://github.com/ds5678/GearSpawner</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/dommrogers/GearSpawner</PackageProjectUrl>
 		<Description>Library for The Long Dark that allows spawning modded items in the world.</Description>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
@@ -44,8 +44,8 @@
 	<!--This is the of packages that the mod references.-->
 	<ItemGroup>
 		<!--This package contains almost everything a person could possibly need to reference while modding.-->
-		<PackageReference Include="ds5678.Modding.TLD.Il2CppAssemblies.Windows" Version="2.7.0" />
-		<PackageReference Include="ds5678.Modding.TLD.ModSettings" Version="1.9.0" />
+		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.10.0" />
+		<PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
 	</ItemGroup>
 	
 </Project>

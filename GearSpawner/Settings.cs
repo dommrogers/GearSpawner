@@ -27,10 +27,10 @@ internal sealed class Settings : JsonModSettings
 	[Slider(0f, 1f, 101, NumberFormat = "{0:F2}")]
 	public float interloperSpawnProbabilityMultiplier = 0.2f;
 
-	[Name("Wintermute")]
-	[Description("Scales the default probability of finding MODDED spawns on this game mode. Setting to zero disables loose item spawns on this game mode. Doesn't affect container loot. Can be overridden by mod-specific settings.")]
-	[Slider(0f, 1f, 101, NumberFormat = "{0:F2}")]
-	public float storySpawnProbabilityMultiplier = 1f;
+	//[Name("Wintermute")]
+	//[Description("Scales the default probability of finding MODDED spawns on this game mode. Setting to zero disables loose item spawns on this game mode. Doesn't affect container loot. Can be overridden by mod-specific settings.")]
+	//[Slider(0f, 1f, 101, NumberFormat = "{0:F2}")]
+	//public float storySpawnProbabilityMultiplier = 1f;
 
 	[Name("Challenges")]
 	[Description("Scales the default probability of finding MODDED spawns on this game mode. Setting to zero disables loose item spawns on this game mode. Doesn't affect container loot. Can be overridden by mod-specific settings.")]

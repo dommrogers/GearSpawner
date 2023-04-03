@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using Il2Cpp;
+using HarmonyLib;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -16,18 +15,21 @@ internal static class Patches
 	{
 		private static void Postfix(AssetReference __instance, ref bool __result)
 		{
-			if (__result)
+
+			if (__result || __instance.AssetGUID == null)
 			{
 				return;
 			}
+
 			if (__instance.AssetGUID != null && __instance.AssetGUID.StartsWith("GEAR_"))
 			{
 				GameObject? testObject = Addressables.LoadAssetAsync<GameObject>(__instance.AssetGUID).WaitForCompletion();
 				if (testObject != null && testObject.name == __instance.AssetGUID)
 				{
+					//MelonLoader.MelonLogger.Warning("patched " + __instance.AssetGUID);
 					__result = true;
 				}
 			}
 		}
-	}
+	}	
 }
