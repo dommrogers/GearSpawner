@@ -8,8 +8,7 @@ namespace GearSpawner;
 [HarmonyPatch]
 internal static class LootTableManager
 {
-	private static readonly Dictionary<string, List<LootTableEntry>> lootTableEntries = new();
-	private static Dictionary<string, List<LootTableEntry>> lootTableEntries = new Dictionary<string, List<LootTableEntry>>();
+	private static Dictionary<string, List<LootTableEntry>> lootTableEntries = new();
 	private static List<int> processedLootTables = new();
 
 	internal static void AddLootTableEntry(string lootTable, LootTableEntry entry)
@@ -38,21 +37,24 @@ internal static class LootTableManager
 		// already processed
 		if (processedLootTables.Contains(instanceId))
 		{
+			return;
+		}
 
 		List<LootTableEntry> entries;
 		if (lootTableEntries.TryGetValue(lootTableData.name.ToLowerInvariant(), out entries))
 		{
+
 			processedLootTables.Add(instanceId);
 
 			Il2CppSystem.Collections.Generic.List<RandomTableDataEntry<AssetReferenceGearItem>> list = new();
 
-//			MelonLoader.MelonLogger.Warning("found LootTableData " + lootTableData.name.ToLowerInvariant() + " " + lootTableData.m_BaseEntries.Count + " | " + entries.Count + " | " + lootTableData.GetInstanceID().ToString());
+			//			MelonLoader.MelonLogger.Warning("found LootTableData " + lootTableData.name.ToLowerInvariant() + " " + lootTableData.m_BaseEntries.Count + " | " + entries.Count + " | " + lootTableData.GetInstanceID().ToString());
 
 			List<string> has = new();
 			foreach (RandomTableDataEntry<AssetReferenceGearItem> R in lootTableData.m_BaseEntries)
 			{
 				has.Add(R.m_Item.AssetGUID);
-//				MelonLoader.MelonLogger.Warning(R.m_Item.AssetGUID + " => " + R.m_Weight + " | " + R.m_Item?.LoadAssetAsync()?.WaitForCompletion()?.name);
+				//			MelonLoader.MelonLogger.Warning(R.m_Item.AssetGUID + " => " + R.m_Weight + " | " + R.m_Item?.LoadAssetAsync()?.WaitForCompletion()?.name);
 			}
 
 			int added = 0;
@@ -68,14 +70,18 @@ internal static class LootTableManager
 					lootTableData.m_FilteredExtendedItems.Add(newEntry.m_Item);
 					lootTableData.m_ExistingOperations.Add(new IKeyEvaluator(newEntry.m_Item.Pointer), newEntry.m_Item.LoadAsset());
 
-//					MelonLoader.MelonLogger.Warning(entry.PrefabName + " => " + entry.Weight);
+					//					MelonLoader.MelonLogger.Warning(entry.PrefabName + " => " + entry.Weight);
 
 					added++;
 				}
 			}
 
-//			MelonLoader.MelonLogger.Warning("patched LootTableData " + lootTableData.name.ToLowerInvariant() + " " + lootTableData.m_BaseEntries.Count + " | +" + added + " | " + lootTableData.GetInstanceID().ToString());
+			if (added > 0)
+			{
+				GearSpawnerMod.Logger.Msg("Processed " + added + " items for " + lootTableData.name.ToLowerInvariant());
+			}
 		}
+
 
 	}
 
@@ -97,7 +103,7 @@ internal static class LootTableManager
 	[HarmonyPatch(typeof(Container), nameof(Container.PopulateWithRandomGear))]
 	private static void Container_PopulateWithRandomGear(Container __instance)
 	{
-		//MelonLoader.MelonLogger.Warning("Container_PopulateWithRandomGear | " + __instance.name);
+		//		MelonLoader.MelonLogger.Warning("Container_PopulateWithRandomGear | " + __instance.name);
 
 		if (__instance.m_LootTable != null)
 		{

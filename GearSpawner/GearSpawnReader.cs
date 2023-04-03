@@ -11,7 +11,7 @@ internal static class GearSpawnReader
 	private const string NUMBER = @"-?\d+(?:\.\d+)?";
 	// language=regex
 	private const string VECTOR = NUMBER + @"\s*,\s*" + NUMBER + @"\s*,\s*" + NUMBER;
-	
+
 	private static readonly Regex LOOTTABLE_ENTRY_REGEX = new Regex(@"^item\s*=\s*(\w+)" + @"\W+w\s*=\s*(" + NUMBER + ")$", RegexOptions.Compiled);
 	private static readonly Regex LOOTTABLE_REGEX = new Regex(@"^loottable\s*=\s*(\w+)$", RegexOptions.Compiled);
 	private static readonly Regex SCENE_REGEX = new Regex(@"^scene\s*=\s*(\w+)$", RegexOptions.Compiled);

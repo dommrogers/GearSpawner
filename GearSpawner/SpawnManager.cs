@@ -11,6 +11,7 @@ public static class SpawnManager
 	public static void ParseSpawnInformation(string text)
 	{
 		string[] lines = Regex.Split(text, "\r\n|\r|\n");
+		MelonLoader.MelonLogger.Warning("lines "+lines.Length);
 		GearSpawnReader.ProcessLines(lines);
 	}
 
