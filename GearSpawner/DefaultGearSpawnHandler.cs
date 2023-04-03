@@ -17,7 +17,7 @@ public class DefaultGearSpawnHandler : IGearSpawnHandler
 			DifficultyLevel.Voyager => Math.Max(0f, Settings.Instance.voyagerSpawnProbabilityMultiplier),
 			DifficultyLevel.Stalker => Math.Max(0f, Settings.Instance.stalkerSpawnProbabilityMultiplier),
 			DifficultyLevel.Interloper => Math.Max(0f, Settings.Instance.interloperSpawnProbabilityMultiplier),
-			DifficultyLevel.Storymode => Math.Max(0f, Settings.Instance.storySpawnProbabilityMultiplier),
+//			DifficultyLevel.Storymode => Math.Max(0f, Settings.Instance.storySpawnProbabilityMultiplier),
 			DifficultyLevel.Challenge => Math.Max(0f, Settings.Instance.challengeSpawnProbabilityMultiplier),
 			_ => 1f,
 		};
