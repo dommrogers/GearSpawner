@@ -25,14 +25,12 @@ public abstract class GearSpawnHandler
 		{
 			<= 0 => false,
 			>= 100 => true,
-			_ => RandomFloat() < percent / 100
+			_ => RandomFloat() < percent
 		};
 
 		static float RandomFloat()
 		{
-			Span<byte> span = stackalloc byte[4];
-			RandomNumberGenerator.Fill(span);
-			return BinaryPrimitives.ReadSingleLittleEndian(span);
+			return (float) new System.Random().Next(0,100);
 		}
 	}
 }
