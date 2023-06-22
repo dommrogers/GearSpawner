@@ -33,7 +33,7 @@ internal static class GameModes
 
 	private static DifficultyLevel GetCustomDifficultyLevel()
 	{
-		return GameManager.GetCustomMode().m_BaseWorldDifficulty switch
+		return GameManager.GetCustomMode().m_BaseResourceAvailability switch
 		{
 			CustomTunableLMHV.VeryHigh => DifficultyLevel.Pilgram,
 			CustomTunableLMHV.High => DifficultyLevel.Voyager,
